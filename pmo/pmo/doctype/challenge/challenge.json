@@ -1,0 +1,135 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "CHL-.YYYY.-.#####",
+ "creation": "2026-09-17 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "details",
+  "challenge_type",
+  "support_kind",
+  "support_text",
+  "is_continuous",
+  "expected_date",
+  "torch_bearer",
+  "region",
+  "status",
+  "latest_update",
+  "latest_update_on",
+  "submission"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Text Editor",
+   "label": "Details"
+  },
+  {
+   "fieldname": "challenge_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Challenge Type",
+   "options": "Procedural\nTechnical\nRegulatory\nFinancial\nHuman Resources\nExternal Entity"
+  },
+  {
+   "fieldname": "support_kind",
+   "fieldtype": "Select",
+   "label": "Support Kind",
+   "options": "Support\nBriefing"
+  },
+  {
+   "fieldname": "support_text",
+   "fieldtype": "Small Text",
+   "label": "Support Text"
+  },
+  {
+   "fieldname": "is_continuous",
+   "fieldtype": "Check",
+   "label": "Is Continuous"
+  },
+  {
+   "depends_on": "eval:!doc.is_continuous",
+   "fieldname": "expected_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expected Date"
+  },
+  {
+   "fieldname": "torch_bearer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Torch Bearer",
+   "options": "Unit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "label": "Region",
+   "options": "Region"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nEscalated\nResolved\nClosed"
+  },
+  {
+   "fieldname": "latest_update",
+   "fieldtype": "Small Text",
+   "label": "Latest Update",
+   "read_only": 1
+  },
+  {
+   "fieldname": "latest_update_on",
+   "fieldtype": "Date",
+   "label": "Latest Update On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "submission",
+   "fieldtype": "Link",
+   "label": "Submission",
+   "options": "Submission"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PMO",
+ "name": "Challenge",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title"
+}

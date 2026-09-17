@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-09-17 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_type",
+  "item",
+  "line_update"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "item_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Item Type",
+   "options": "Action Item\nChallenge\nWatch Item"
+  },
+  {
+   "columns": 3,
+   "fieldname": "item",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "item_type"
+  },
+  {
+   "columns": 5,
+   "fieldname": "line_update",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Line Update"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PMO",
+ "name": "Submission Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

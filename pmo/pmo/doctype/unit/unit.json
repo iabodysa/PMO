@@ -1,0 +1,104 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:unit_name",
+ "creation": "2026-09-17 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "unit_name",
+  "parent_unit",
+  "unit_type",
+  "is_active",
+  "lft",
+  "rgt",
+  "is_group",
+  "old_parent"
+ ],
+ "fields": [
+  {
+   "fieldname": "unit_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unit Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "parent_unit",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Parent Unit",
+   "options": "Unit"
+  },
+  {
+   "fieldname": "unit_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Unit Type",
+   "options": "Agency\nDepartment\nBranch\nSection"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Unit"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2026-09-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PMO",
+ "name": "Unit",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_unit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

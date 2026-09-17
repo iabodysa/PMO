@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "WCH-.YYYY.-.#####",
+ "creation": "2026-09-17 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "details",
+  "torch_bearer",
+  "region",
+  "status",
+  "latest_update",
+  "latest_update_on",
+  "submission"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Text Editor",
+   "label": "Details"
+  },
+  {
+   "fieldname": "torch_bearer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Torch Bearer",
+   "options": "Unit"
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "label": "Region",
+   "options": "Region"
+  },
+  {
+   "default": "Watching",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Watching\nEscalated\nClosed"
+  },
+  {
+   "fieldname": "latest_update",
+   "fieldtype": "Small Text",
+   "label": "Latest Update",
+   "read_only": 1
+  },
+  {
+   "fieldname": "latest_update_on",
+   "fieldtype": "Date",
+   "label": "Latest Update On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "submission",
+   "fieldtype": "Link",
+   "label": "Submission",
+   "options": "Submission"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PMO",
+ "name": "Watch Item",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title"
+}

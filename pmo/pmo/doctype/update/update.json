@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "UPD-.YYYY.-.#####",
+ "creation": "2026-09-17 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "reference_doctype",
+  "reference_name",
+  "update_date",
+  "update_source",
+  "source_unit",
+  "source_entity",
+  "update_text"
+ ],
+ "fields": [
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Reference Document Type",
+   "link_filters": "[[\"DocType\", \"name\", \"in\", [\"Action Item\", \"Challenge\", \"Watch Item\"]]]",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Reference Name",
+   "options": "reference_doctype",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "update_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Update Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "update_source",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Update Source",
+   "options": "Owner Unit\nTorch Bearer\nEntity\nPMO",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:[\"Owner Unit\",\"Torch Bearer\"].includes(doc.update_source)",
+   "fieldname": "source_unit",
+   "fieldtype": "Link",
+   "label": "Source Unit",
+   "options": "Unit"
+  },
+  {
+   "depends_on": "eval:doc.update_source==\"Entity\"",
+   "fieldname": "source_entity",
+   "fieldtype": "Link",
+   "label": "Source Entity",
+   "options": "Entity"
+  },
+  {
+   "fieldname": "update_text",
+   "fieldtype": "Text Editor",
+   "label": "Update Text",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-09-17 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PMO",
+ "name": "Update",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
