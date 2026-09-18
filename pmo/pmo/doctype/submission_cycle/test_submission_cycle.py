@@ -4,8 +4,11 @@
 import frappe
 from frappe.tests import IntegrationTestCase
 
-from pmo.pmo.doctype.submission_cycle.submission_cycle import generate_region_submissions
-from pmo.services.submissions import active_regions
+from pmo.pmo.doctype.submission_cycle.submission_cycle import (
+	active_regions,
+	generate_region_submissions,
+	get_cycle_statistics,
+)
 
 
 class TestSubmissionCycle(IntegrationTestCase):
@@ -64,3 +67,19 @@ class TestSubmissionCycle(IntegrationTestCase):
 			[frappe.db.get_value("Submission", name, "unit") for name in third], [late_region.name]
 		)
 		self.assertEqual(frappe.db.count("Submission", {"submission_cycle": cycle.name}), len(first) + 1)
+
+	def test_cycle_statistics_count_every_active_region_and_only_the_submitted_ones(self):
+		region = self.make_unit("Region")
+		self.make_unit("Region")
+		cycle = self.make_cycle()
+		generate_region_submissions(cycle.name)
+
+		submission = frappe.get_doc("Submission", {"submission_cycle": cycle.name, "unit": region.name})
+		submission.status = "Submitted"
+		submission.save()
+
+		stats = get_cycle_statistics(cycle.name)
+
+		self.assertEqual(stats["total_regions"], len(active_regions()))
+		self.assertEqual(stats["submitted"], 1)
+		self.assertEqual(stats["pending"], stats["total_regions"] - 1)

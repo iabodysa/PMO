@@ -88,6 +88,26 @@ class TestActionItem(IntegrationTestCase):
 		self.assertEqual(self.assignees(item, "Open"), {current})
 		self.assertEqual(self.assignees(item, "Cancelled"), {previous})
 
+	def test_resaving_with_the_same_pmo_coordinator_leaves_exactly_one_open_todo(self):
+		coordinator = self.make_coordinator()
+		item = self.make_action_item(coordinator)
+
+		item.subject = f"{item.subject} rewritten"
+		item.save()
+
+		self.assertEqual(
+			frappe.db.count(
+				"ToDo",
+				{
+					"reference_type": "Action Item",
+					"reference_name": item.name,
+					"status": "Open",
+					"allocated_to": coordinator,
+				},
+			),
+			1,
+		)
+
 
 class TestActionItemCompletionTimestamp(IntegrationTestCase):
 	def setUp(self):

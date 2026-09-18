@@ -6,6 +6,8 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.utils import getdate
 
+SUBMITTED_STATUSES = ("Submitted", "Reviewed")
+
 
 class SubmissionCycle(Document):
 	def validate(self):
@@ -36,17 +38,37 @@ class SubmissionCycle(Document):
 			frappe.get_doc("Submission", name).save(ignore_permissions=True)
 
 
+def active_regions():
+	return frappe.get_all("Unit", filters={"unit_type": "Region", "is_active": 1}, pluck="name")
+
+
 @frappe.whitelist()
 def generate_region_submissions(submission_cycle: str):
-	from pmo.services.submissions import generate_region_submissions as generate
-
 	frappe.get_doc("Submission Cycle", submission_cycle).check_permission("write")
-	return generate(submission_cycle)
+
+	covered = set(
+		frappe.get_all("Submission", filters={"submission_cycle": submission_cycle}, pluck="unit")
+	)
+
+	created = []
+	for region in active_regions():
+		if region in covered:
+			continue
+
+		submission = frappe.get_doc(
+			{"doctype": "Submission", "submission_cycle": submission_cycle, "unit": region}
+		).insert()
+		created.append(submission.name)
+
+	return created
 
 
 @frappe.whitelist()
 def get_cycle_statistics(submission_cycle: str):
-	from pmo.services.submissions import get_cycle_statistics as statistics
-
 	frappe.get_doc("Submission Cycle", submission_cycle).check_permission("read")
-	return statistics(submission_cycle)
+
+	total = len(active_regions())
+	submitted = frappe.db.count(
+		"Submission", {"submission_cycle": submission_cycle, "status": ("in", SUBMITTED_STATUSES)}
+	)
+	return {"total_regions": total, "submitted": submitted, "pending": max(total - submitted, 0)}

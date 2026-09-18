@@ -6,7 +6,7 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.utils import getdate, nowdate
 
-from pmo.services import assignments
+from pmo.pmo import assignments
 
 RESOLVED_STATUSES = ("Resolved", "Closed")
 

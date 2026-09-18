@@ -5,7 +5,7 @@ import frappe
 from frappe import _
 from frappe.model.document import Document
 
-from pmo.services.progress import refresh_latest_update
+from pmo.pmo.doctype.watch_item.watch_item import refresh_next_update_due
 
 REFERENCE_DOCTYPES = ("Action Item", "Challenge", "Watch Item")
 
@@ -33,3 +33,36 @@ class ProgressUpdate(Document):
 
 	def on_trash(self):
 		refresh_latest_update(self.reference_doctype, self.reference_name, exclude=self.name)
+
+
+def newest_progress_update(reference_doctype, reference_name, exclude=None):
+	filters = {"reference_doctype": reference_doctype, "reference_name": reference_name}
+	if exclude:
+		filters["name"] = ("!=", exclude)
+
+	rows = frappe.get_all(
+		"Progress Update",
+		filters=filters,
+		fields=["name", "update_text", "update_date"],
+		order_by="update_date desc, creation desc",
+		limit=1,
+	)
+	return rows[0] if rows else None
+
+
+def refresh_latest_update(reference_doctype, reference_name, exclude=None):
+	newest = newest_progress_update(reference_doctype, reference_name, exclude)
+	frappe.db.set_value(
+		reference_doctype,
+		reference_name,
+		{
+			"latest_update": newest.update_text if newest else None,
+			"latest_update_on": newest.update_date if newest else None,
+		},
+		update_modified=False,
+	)
+
+	if reference_doctype == "Watch Item":
+		refresh_next_update_due(reference_name, exclude=exclude)
+
+	return newest

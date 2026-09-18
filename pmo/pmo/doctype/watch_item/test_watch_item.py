@@ -5,6 +5,9 @@ import frappe
 from frappe.tests import IntegrationTestCase
 from frappe.utils import getdate
 
+from pmo import hooks, tasks
+from pmo.pmo.doctype.watch_item.watch_item import refresh_next_update_due
+
 UPDATE_DATE = "2026-01-15"
 CUSTOM_DAYS = 10
 
@@ -48,3 +51,22 @@ class TestWatchItem(IntegrationTestCase):
 
 	def test_custom_watch_item_falls_due_custom_frequency_days_after_its_newest_progress_update(self):
 		self.assertEqual(self.next_update_due_after_an_update("Custom", CUSTOM_DAYS), getdate("2026-01-25"))
+
+	def test_the_daily_scheduler_hook_names_a_task_that_resolves_to_a_callable(self):
+		self.assertEqual(hooks.scheduler_events["daily"], ["pmo.tasks.reconcile_next_update_due"])
+		self.assertTrue(callable(frappe.get_attr("pmo.tasks.reconcile_next_update_due")))
+
+	def test_the_daily_scheduler_task_reconciles_through_the_watch_item_owned_helper(self):
+		self.assertIs(tasks.refresh_next_update_due, refresh_next_update_due)
+		self.assertEqual(refresh_next_update_due.__module__, "pmo.pmo.doctype.watch_item.watch_item")
+
+	def test_the_daily_scheduler_task_restores_a_next_update_due_that_drifted(self):
+		watch_item = self.watch_item("Weekly")
+		self.add_progress_update(watch_item)
+		frappe.db.set_value("Watch Item", watch_item.name, "next_update_due", "2000-01-01")
+
+		tasks.reconcile_next_update_due()
+
+		self.assertEqual(
+			frappe.db.get_value("Watch Item", watch_item.name, "next_update_due"), getdate("2026-01-22")
+		)

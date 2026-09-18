@@ -3,7 +3,7 @@
 
 import frappe
 
-from pmo.services.progress import refresh_next_update_due
+from pmo.pmo.doctype.watch_item.watch_item import refresh_next_update_due
 
 
 def reconcile_next_update_due():

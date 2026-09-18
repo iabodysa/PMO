@@ -6,7 +6,7 @@ from frappe import _
 from frappe.model.document import Document
 from frappe.utils import today
 
-from pmo.services import assignments
+from pmo.pmo import assignments
 
 
 class ActionItem(Document):
