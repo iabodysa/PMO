@@ -9,7 +9,8 @@
  "field_order": [
   "entity_name",
   "entity_scope",
-  "unit"
+  "unit",
+  "is_active"
  ],
  "fields": [
   {
@@ -32,19 +33,50 @@
    "depends_on": "eval:doc.entity_scope==\"Internal\"",
    "fieldname": "unit",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Unit",
+   "mandatory_depends_on": "eval:doc.entity_scope==\"Internal\"",
    "options": "Unit"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-17 00:00:00.000000",
+ "modified": "2026-09-18 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "PMO",
  "name": "Entity",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PMO Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Project Manager"
+  },
+  {
+   "read": 1,
+   "role": "Project Specialist"
+  },
   {
    "create": 1,
    "delete": 1,

@@ -13,13 +13,17 @@
   "update_source",
   "source_unit",
   "source_entity",
-  "update_text"
+  "update_text",
+  "next_action",
+  "next_update_due",
+  "attachment"
  ],
  "fields": [
   {
    "fieldname": "reference_doctype",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Reference Document Type",
    "link_filters": "[[\"DocType\", \"name\", \"in\", [\"Action Item\", \"Challenge\", \"Watch Item\"]]]",
    "options": "DocType",
@@ -31,7 +35,8 @@
    "in_list_view": 1,
    "label": "Reference Name",
    "options": "reference_doctype",
-   "reqd": 1
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "default": "Today",
@@ -45,19 +50,20 @@
    "fieldname": "update_source",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Update Source",
-   "options": "Owner Unit\nTorch Bearer\nEntity\nPMO",
+   "options": "Owner Unit\nRelated Entity\nPMO",
    "reqd": 1
   },
   {
-   "depends_on": "eval:[\"Owner Unit\",\"Torch Bearer\"].includes(doc.update_source)",
+   "depends_on": "eval:doc.update_source==\"Owner Unit\"",
    "fieldname": "source_unit",
    "fieldtype": "Link",
    "label": "Source Unit",
    "options": "Unit"
   },
   {
-   "depends_on": "eval:doc.update_source==\"Entity\"",
+   "depends_on": "eval:doc.update_source==\"Related Entity\"",
    "fieldname": "source_entity",
    "fieldtype": "Link",
    "label": "Source Entity",
@@ -68,14 +74,29 @@
    "fieldtype": "Text Editor",
    "label": "Update Text",
    "reqd": 1
+  },
+  {
+   "fieldname": "next_action",
+   "fieldtype": "Small Text",
+   "label": "Next Action"
+  },
+  {
+   "fieldname": "next_update_due",
+   "fieldtype": "Date",
+   "label": "Next Update Due"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-17 00:00:00.000000",
+ "modified": "2026-09-18 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "PMO",
- "name": "Update",
+ "name": "Progress Update",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
@@ -88,6 +109,38 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PMO Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Project Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Project Specialist",
    "share": 1,
    "write": 1
   }

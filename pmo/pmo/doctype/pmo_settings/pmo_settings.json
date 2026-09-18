@@ -1,0 +1,80 @@
+{
+ "actions": [],
+ "creation": "2026-09-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enable_reminders",
+  "action_item_reminder_days",
+  "watch_update_reminder_days",
+  "submission_reminder_days",
+  "default_watch_frequency",
+  "auto_assign_pmo_coordinator"
+ ],
+ "fields": [
+  {
+   "fieldname": "enable_reminders",
+   "fieldtype": "Check",
+   "label": "Enable Reminders"
+  },
+  {
+   "fieldname": "action_item_reminder_days",
+   "fieldtype": "Int",
+   "label": "Action Item Reminder Days"
+  },
+  {
+   "fieldname": "watch_update_reminder_days",
+   "fieldtype": "Int",
+   "label": "Watch Update Reminder Days"
+  },
+  {
+   "fieldname": "submission_reminder_days",
+   "fieldtype": "Int",
+   "label": "Submission Reminder Days"
+  },
+  {
+   "fieldname": "default_watch_frequency",
+   "fieldtype": "Select",
+   "label": "Default Watch Frequency",
+   "options": "Weekly\nBiweekly\nMonthly"
+  },
+  {
+   "fieldname": "auto_assign_pmo_coordinator",
+   "fieldtype": "Check",
+   "label": "Auto Assign PMO Coordinator"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PMO",
+ "name": "PMO Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "PMO Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Project Manager"
+  },
+  {
+   "read": 1,
+   "role": "Project Specialist"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

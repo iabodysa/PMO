@@ -9,12 +9,17 @@
  "field_order": [
   "title",
   "details",
-  "torch_bearer",
+  "owner_unit",
   "region",
+  "related_entity",
   "status",
+  "update_frequency",
+  "custom_frequency_days",
+  "next_update_due",
+  "pmo_coordinator",
+  "source_submission",
   "latest_update",
-  "latest_update_on",
-  "submission"
+  "latest_update_on"
  ],
  "fields": [
   {
@@ -30,25 +35,67 @@
    "label": "Details"
   },
   {
-   "fieldname": "torch_bearer",
+   "fieldname": "owner_unit",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Torch Bearer",
    "options": "Unit"
   },
   {
    "fieldname": "region",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Region",
-   "options": "Region"
+   "link_filters": "[[\"Unit\", \"unit_type\", \"=\", \"Region\"]]",
+   "options": "Unit"
   },
   {
-   "default": "Watching",
+   "fieldname": "related_entity",
+   "fieldtype": "Link",
+   "label": "Related Entity",
+   "options": "Entity"
+  },
+  {
+   "default": "Active",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
-   "options": "Watching\nEscalated\nClosed"
+   "options": "Active\nPaused\nClosed"
+  },
+  {
+   "fieldname": "update_frequency",
+   "fieldtype": "Select",
+   "label": "Update Frequency",
+   "options": "\nWeekly\nBiweekly\nMonthly\nCustom"
+  },
+  {
+   "depends_on": "eval:doc.update_frequency==\"Custom\"",
+   "fieldname": "custom_frequency_days",
+   "fieldtype": "Int",
+   "label": "Custom Frequency Days",
+   "mandatory_depends_on": "eval:doc.update_frequency==\"Custom\""
+  },
+  {
+   "fieldname": "next_update_due",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Next Update Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pmo_coordinator",
+   "fieldtype": "Link",
+   "label": "PMO Coordinator",
+   "options": "User"
+  },
+  {
+   "fieldname": "source_submission",
+   "fieldtype": "Link",
+   "label": "Source Submission",
+   "options": "Submission"
   },
   {
    "fieldname": "latest_update",
@@ -61,17 +108,11 @@
    "fieldtype": "Date",
    "label": "Latest Update On",
    "read_only": 1
-  },
-  {
-   "fieldname": "submission",
-   "fieldtype": "Link",
-   "label": "Submission",
-   "options": "Submission"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-17 00:00:00.000000",
+ "modified": "2026-09-18 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "PMO",
  "name": "Watch Item",
@@ -88,6 +129,32 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PMO Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Project Manager",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Project Specialist",
    "write": 1
   }
  ],

@@ -1,84 +1,67 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "SUB-.YYYY.-.#####",
- "creation": "2026-09-17 00:00:00.000000",
+ "autoname": "SBC-.YYYY.-.#####",
+ "creation": "2026-09-18 00:00:00.000000",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "submission_cycle",
-  "unit",
+  "title",
+  "submission_type",
   "status",
   "period_from",
   "period_to",
-  "cycle_due_date",
-  "submitted_on",
-  "notes",
-  "lines"
+  "due_date",
+  "notes"
  ],
  "fields": [
   {
-   "fieldname": "submission_cycle",
-   "fieldtype": "Link",
+   "fieldname": "title",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Submission Cycle",
-   "options": "Submission Cycle",
+   "label": "Title",
    "reqd": 1
   },
   {
-   "fieldname": "unit",
-   "fieldtype": "Link",
+   "fieldname": "submission_type",
+   "fieldtype": "Select",
    "in_list_view": 1,
-   "label": "Unit",
-   "options": "Unit",
+   "label": "Submission Type",
+   "options": "Challenges\nTasks\nGeneral Update",
    "reqd": 1
   },
   {
-   "default": "Draft",
+   "default": "Open",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Draft\nSubmitted\nReviewed"
+   "options": "Open\nClosed"
   },
   {
-   "fetch_from": "submission_cycle.period_from",
    "fieldname": "period_from",
    "fieldtype": "Date",
    "label": "Period From",
-   "read_only": 1
+   "reqd": 1
   },
   {
-   "fetch_from": "submission_cycle.period_to",
    "fieldname": "period_to",
    "fieldtype": "Date",
    "label": "Period To",
-   "read_only": 1
+   "reqd": 1
   },
   {
-   "fetch_from": "submission_cycle.due_date",
-   "fieldname": "cycle_due_date",
+   "fieldname": "due_date",
    "fieldtype": "Date",
-   "label": "Cycle Due Date",
-   "read_only": 1
-  },
-  {
-   "fieldname": "submitted_on",
-   "fieldtype": "Datetime",
-   "label": "Submitted On",
-   "read_only": 1
+   "in_list_view": 1,
+   "label": "Due Date",
+   "reqd": 1
   },
   {
    "fieldname": "notes",
    "fieldtype": "Text Editor",
    "label": "Notes"
-  },
-  {
-   "fieldname": "lines",
-   "fieldtype": "Table",
-   "label": "Lines",
-   "options": "Submission Line"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -86,7 +69,7 @@
  "modified": "2026-09-18 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "PMO",
- "name": "Submission",
+ "name": "Submission Cycle",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
@@ -126,17 +109,16 @@
    "write": 1
   },
   {
-   "create": 1,
    "email": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Project Specialist",
-   "share": 1,
-   "write": 1
+   "share": 1
   }
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "title"
 }

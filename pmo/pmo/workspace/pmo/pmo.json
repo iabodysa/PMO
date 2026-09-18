@@ -1,0 +1,192 @@
+{
+ "app": "pmo",
+ "charts": [],
+ "content": "[{\"id\":\"pmoNumber0\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Action Items\",\"col\":4}},{\"id\":\"pmoNumber1\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Overdue Action Items\",\"col\":4}},{\"id\":\"pmoNumber2\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Challenges\",\"col\":4}},{\"id\":\"pmoNumber3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Watch Items Due for Update\",\"col\":4}},{\"id\":\"pmoNumber4\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Open Submission Cycles\",\"col\":4}},{\"id\":\"pmoSpacer0\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"pmoCard0\",\"type\":\"card\",\"data\":{\"card_name\":\"FOLLOW-UP\",\"col\":3}},{\"id\":\"pmoCard1\",\"type\":\"card\",\"data\":{\"card_name\":\"SUBMISSIONS\",\"col\":3}},{\"id\":\"pmoCard2\",\"type\":\"card\",\"data\":{\"card_name\":\"MASTERS\",\"col\":3}},{\"id\":\"pmoCard3\",\"type\":\"card\",\"data\":{\"card_name\":\"SETTINGS\",\"col\":3}}]",
+ "creation": "2026-09-18 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "folder-kanban",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "PMO",
+ "links": [
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "FOLLOW-UP",
+   "link_count": 4,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Action Item",
+   "link_count": 0,
+   "link_to": "Action Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Challenge",
+   "link_count": 0,
+   "link_to": "Challenge",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Watch Item",
+   "link_count": 0,
+   "link_to": "Watch Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Progress Update",
+   "link_count": 0,
+   "link_to": "Progress Update",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SUBMISSIONS",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Submission Cycle",
+   "link_count": 0,
+   "link_to": "Submission Cycle",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Submission",
+   "link_count": 0,
+   "link_to": "Submission",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "MASTERS",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Unit",
+   "link_count": 0,
+   "link_to": "Unit",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Entity",
+   "link_count": 0,
+   "link_to": "Entity",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "SETTINGS",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "PMO Settings",
+   "link_count": 0,
+   "link_to": "PMO Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-09-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PMO",
+ "name": "PMO",
+ "number_cards": [
+  {
+   "label": "Open Action Items",
+   "number_card_name": "Open Action Items"
+  },
+  {
+   "label": "Overdue Action Items",
+   "number_card_name": "Overdue Action Items"
+  },
+  {
+   "label": "Open Challenges",
+   "number_card_name": "Open Challenges"
+  },
+  {
+   "label": "Watch Items Due for Update",
+   "number_card_name": "Watch Items Due for Update"
+  },
+  {
+   "label": "Open Submission Cycles",
+   "number_card_name": "Open Submission Cycles"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "PMO",
+ "type": "Workspace"
+}

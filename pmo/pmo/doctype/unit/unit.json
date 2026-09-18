@@ -1,19 +1,20 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:unit_name",
+ "autoname": "UNT-.#####",
  "creation": "2026-09-17 00:00:00.000000",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "unit_name",
+  "unit_code",
   "parent_unit",
   "unit_type",
+  "is_group",
   "is_active",
   "lft",
   "rgt",
-  "is_group",
   "old_parent"
  ],
  "fields": [
@@ -22,7 +23,12 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Unit Name",
-   "reqd": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit_code",
+   "fieldtype": "Data",
+   "label": "Unit Code",
    "unique": 1
   },
   {
@@ -37,7 +43,12 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Unit Type",
-   "options": "Agency\nDepartment\nBranch\nSection"
+   "options": "Agency\nAssistant Agency\nGeneral Department\nDepartment\nRegion\nBranch\nSection\nOffice"
+  },
+  {
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group"
   },
   {
    "default": "1",
@@ -62,11 +73,6 @@
    "read_only": 1
   },
   {
-   "fieldname": "is_group",
-   "fieldtype": "Check",
-   "label": "Is Group"
-  },
-  {
    "fieldname": "old_parent",
    "fieldtype": "Link",
    "hidden": 1,
@@ -77,14 +83,37 @@
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2026-09-17 00:00:00.000000",
+ "modified": "2026-09-18 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "PMO",
  "name": "Unit",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "nsm_parent_field": "parent_unit",
  "owner": "Administrator",
  "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PMO Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Project Manager"
+  },
+  {
+   "read": 1,
+   "role": "Project Specialist"
+  },
   {
    "create": 1,
    "delete": 1,
@@ -100,5 +129,6 @@
  ],
  "sort_field": "creation",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "unit_name"
 }

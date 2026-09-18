@@ -8,15 +8,19 @@
  "engine": "InnoDB",
  "field_order": [
   "subject",
-  "torch_bearer",
-  "status",
-  "completion_date",
+  "description",
+  "owner_unit",
   "region",
   "entity",
+  "priority",
+  "due_date",
+  "status",
+  "completed_on",
+  "parent_action_item",
+  "pmo_coordinator",
+  "source_submission",
   "latest_update",
-  "latest_update_on",
-  "submission",
-  "description"
+  "latest_update_on"
  ],
  "fields": [
   {
@@ -27,7 +31,12 @@
    "reqd": 1
   },
   {
-   "fieldname": "torch_bearer",
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "owner_unit",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Torch Bearer",
@@ -35,30 +44,61 @@
    "reqd": 1
   },
   {
-   "default": "Not Started",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "options": "Not Started\nIn Progress\nCompleted\nBlocked\nCancelled"
-  },
-  {
-   "fieldname": "completion_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Completion Date"
-  },
-  {
    "fieldname": "region",
    "fieldtype": "Link",
    "label": "Region",
-   "options": "Region"
+   "link_filters": "[[\"Unit\", \"unit_type\", \"=\", \"Region\"]]",
+   "options": "Unit"
   },
   {
    "fieldname": "entity",
    "fieldtype": "Link",
    "label": "Entity",
    "options": "Entity"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "\nLow\nMedium\nHigh"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date"
+  },
+  {
+   "default": "Not Started",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Not Started\nIn Progress\nCompleted"
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Date",
+   "label": "Completed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "parent_action_item",
+   "fieldtype": "Link",
+   "label": "Parent Action Item",
+   "options": "Action Item"
+  },
+  {
+   "fieldname": "pmo_coordinator",
+   "fieldtype": "Link",
+   "label": "PMO Coordinator",
+   "options": "User"
+  },
+  {
+   "fieldname": "source_submission",
+   "fieldtype": "Link",
+   "label": "Source Submission",
+   "options": "Submission"
   },
   {
    "fieldname": "latest_update",
@@ -71,22 +111,11 @@
    "fieldtype": "Date",
    "label": "Latest Update On",
    "read_only": 1
-  },
-  {
-   "fieldname": "submission",
-   "fieldtype": "Link",
-   "label": "Submission",
-   "options": "Submission"
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Text Editor",
-   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-17 00:00:00.000000",
+ "modified": "2026-09-18 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "PMO",
  "name": "Action Item",
@@ -102,6 +131,40 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PMO Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Project Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Project Specialist",
    "share": 1,
    "write": 1
   }

@@ -10,16 +10,22 @@
   "title",
   "details",
   "challenge_type",
+  "priority",
   "support_kind",
   "support_text",
-  "is_continuous",
-  "expected_date",
-  "torch_bearer",
+  "owner_unit",
   "region",
+  "related_entity",
   "status",
+  "opened_on",
+  "expected_resolution_date",
+  "resolved_on",
+  "is_escalated",
+  "escalated_on",
+  "pmo_coordinator",
+  "source_submission",
   "latest_update",
-  "latest_update_on",
-  "submission"
+  "latest_update_on"
  ],
  "fields": [
   {
@@ -38,8 +44,17 @@
    "fieldname": "challenge_type",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Challenge Type",
-   "options": "Procedural\nTechnical\nRegulatory\nFinancial\nHuman Resources\nExternal Entity"
+   "options": "Procedural\nTechnical\nRegulatory\nFinancial\nHuman Resources\nExternal Entity\nOther"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh"
   },
   {
    "fieldname": "support_kind",
@@ -53,21 +68,10 @@
    "label": "Support Text"
   },
   {
-   "fieldname": "is_continuous",
-   "fieldtype": "Check",
-   "label": "Is Continuous"
-  },
-  {
-   "depends_on": "eval:!doc.is_continuous",
-   "fieldname": "expected_date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Expected Date"
-  },
-  {
-   "fieldname": "torch_bearer",
+   "fieldname": "owner_unit",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Torch Bearer",
    "options": "Unit",
    "reqd": 1
@@ -75,16 +79,67 @@
   {
    "fieldname": "region",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Region",
-   "options": "Region"
+   "link_filters": "[[\"Unit\", \"unit_type\", \"=\", \"Region\"]]",
+   "options": "Unit"
+  },
+  {
+   "fieldname": "related_entity",
+   "fieldtype": "Link",
+   "label": "Related Entity",
+   "options": "Entity"
   },
   {
    "default": "Open",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
-   "options": "Open\nEscalated\nResolved\nClosed"
+   "options": "Open\nUnder Handling\nStalled\nResolved\nClosed"
+  },
+  {
+   "default": "Today",
+   "fieldname": "opened_on",
+   "fieldtype": "Date",
+   "label": "Opened On"
+  },
+  {
+   "fieldname": "expected_resolution_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Expected Resolution Date"
+  },
+  {
+   "depends_on": "eval:[\"Resolved\", \"Closed\"].includes(doc.status)",
+   "fieldname": "resolved_on",
+   "fieldtype": "Date",
+   "label": "Resolved On"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_escalated",
+   "fieldtype": "Check",
+   "label": "Is Escalated"
+  },
+  {
+   "depends_on": "eval:doc.is_escalated",
+   "fieldname": "escalated_on",
+   "fieldtype": "Date",
+   "label": "Escalated On"
+  },
+  {
+   "fieldname": "pmo_coordinator",
+   "fieldtype": "Link",
+   "label": "PMO Coordinator",
+   "options": "User"
+  },
+  {
+   "fieldname": "source_submission",
+   "fieldtype": "Link",
+   "label": "Source Submission",
+   "options": "Submission"
   },
   {
    "fieldname": "latest_update",
@@ -97,23 +152,51 @@
    "fieldtype": "Date",
    "label": "Latest Update On",
    "read_only": 1
-  },
-  {
-   "fieldname": "submission",
-   "fieldtype": "Link",
-   "label": "Submission",
-   "options": "Submission"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-17 00:00:00.000000",
+ "modified": "2026-09-18 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "PMO",
  "name": "Challenge",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PMO Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Project Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Project Specialist",
+   "share": 1,
+   "write": 1
+  },
   {
    "create": 1,
    "delete": 1,

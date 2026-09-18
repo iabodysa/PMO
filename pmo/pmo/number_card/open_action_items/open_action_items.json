@@ -1,0 +1,21 @@
+{
+ "creation": "2026-09-18 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "Action Item",
+ "dynamic_filters_json": "",
+ "filters_json": "[[\"Action Item\",\"status\",\"!=\",\"Completed\"]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Open Action Items",
+ "modified": "2026-09-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "PMO",
+ "name": "Open Action Items",
+ "owner": "Administrator",
+ "show_percentage_stats": 0,
+ "stats_time_interval": "Weekly",
+ "type": "Document Type"
+}

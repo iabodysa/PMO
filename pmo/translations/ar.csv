@@ -1,0 +1,160 @@
+A Progress Update may only refer to {0}.,لا يمكن أن يشير التحديث إلا إلى {0}.
+Action Item,مهمة رئيسية
+Action Item Reminder Days,أيام التذكير بالمهمة الرئيسية
+Action Item {0} cannot be its own ancestor,لا يمكن أن تكون المهمة الرئيسية {0} أصلاً لنفسها
+Active,نشط
+Add,إضافة
+Add Existing Item,إضافة بند قائم
+Add Progress Update,إضافة تحديث
+Agency,وكالة
+Assign,إسناد
+Assign PMO Coordinator,إسناد منسق مكتب المشاريع
+Assistant Agency,وكالة مساعدة
+Attachment,المرفق
+Auto Assign PMO Coordinator,إسناد منسق مكتب المشاريع تلقائياً
+Biweekly,كل أسبوعين
+Branch,فرع
+Briefing,الإحاطة
+Challenge,التحدي
+Challenge Type,نوع التحدي
+Challenges,التحديات
+Closed,مغلق
+Completed,مكتملة
+Completed On,تاريخ الإنجاز
+Create Action Item,إنشاء مهمة رئيسية
+Create Challenge,إنشاء تحدي
+Custom,مخصص
+Custom Frequency Days,أيام التكرار المخصص
+Custom Frequency Days is required when Update Frequency is Custom,أيام التكرار المخصص مطلوبة عندما يكون تكرار التحديث مخصصاً
+Cycle Due Date,تاريخ استحقاق الدورة
+Default Watch Frequency,تكرار المتابعة الافتراضي
+Department,إدارة
+Description,الوصف
+Details,التفاصيل
+DocType,نوع المستند
+Draft,مسودة
+Due Date,تاريخ الاستحقاق
+Due Date must fall on or after Period From,يجب ألا يكون تاريخ الاستحقاق قبل بداية الفترة
+Enable Reminders,تفعيل التذكيرات
+Entity,الجهة
+Entity Name,اسم الجهة
+Entity Scope,نطاق الجهة
+Escalated On,تاريخ التصعيد
+Escalated On cannot be earlier than Opened On,لا يمكن أن يسبق تاريخ التصعيد تاريخ الفتح
+Expected Resolution Date,التاريخ المتوقع
+External,خارجية
+External Entity,جهة خارجية
+FOLLOW-UP,المتابعة
+Financial,مالي
+Follow-up,المتابعة
+General Department,إدارة عامة
+General Update,تحديث عام
+Generate Region Submissions,إنشاء الرفع الأسبوعي للمناطق
+Generating region submissions,جارٍ إنشاء الرفع الأسبوعي للمناطق
+High,عالية
+Human Resources,موارد بشرية
+In Progress,قيد التنفيذ
+Internal,داخلية
+Is Active,نشطة
+Is Escalated,تم التصعيد
+Is Group,مجموعة
+Item,البند
+Item Type,نوع البند
+Latest Update,تحديث المهمة
+Latest Update On,تاريخ آخر تحديث
+Left,يسار
+Line Update,تحديث السطر
+Lines,سطور الرفع
+Low,منخفضة
+MASTERS,البيانات الأساسية
+Masters,البيانات الأساسية
+Medium,متوسطة
+Monthly,شهري
+Next Action,الإجراء التالي
+Next Update Due,موعد التحديث القادم
+Not Started,لم تبدأ
+Notes,ملاحظات
+Office,مكتب
+Old Parent,الوحدة الأعلى السابقة
+Open,مفتوح
+Open Action Items,المهام الرئيسية المفتوحة
+Open Challenges,التحديات المفتوحة
+Open Submission Cycles,دورات الرفع المفتوحة
+Opened On,تاريخ الفتح
+Other,أخرى
+Overdue,متأخرة
+Overdue Action Items,المهام الرئيسية المتأخرة
+Owner Unit,الوحدة المالكة
+PMO,مكتب إدارة المشاريع
+PMO Coordinator,منسق مكتب المشاريع
+PMO Settings,إعدادات مكتب المشاريع
+Parent Action Item,المهمة الرئيسية الأعلى
+Parent Unit,الوحدة الأعلى
+Paused,متوقف مؤقتاً
+Pending / Overdue,معلق / متأخر
+Pending: {0},المتبقي: {0}
+Period From,بداية الفترة
+Period From must fall on or before Period To,يجب ألا تكون بداية الفترة بعد نهايتها
+Period To,نهاية الفترة
+Priority,الأولوية
+Procedural,إجرائي
+Progress Update,التحديث
+Raised from Challenge {0}: {1},منبثقة من التحدي {0}: {1}
+Reassign PMO Coordinator,إعادة إسناد منسق مكتب المشاريع
+Reference Document Type,نوع المستند المرجعي
+Reference Document Type Not Allowed,نوع المستند المرجعي غير مسموح به
+Reference Name,اسم المستند المرجعي
+Region,المنطقة
+Regulatory,تنظيمي
+Related Entity,الجهة ذات العلاقة
+Resolved,تم الحل
+Resolved On,تاريخ الحل
+Resolved On cannot be earlier than Opened On,لا يمكن أن يسبق تاريخ الحل تاريخ الفتح
+Reviewed,تمت المراجعة
+Right,يمين
+SETTINGS,الإعدادات
+SUBMISSIONS,الرفع الأسبوعي
+Section,قسم
+Settings,الإعدادات
+Source Entity,الجهة المصدر
+Source Submission,الرفع المصدر
+Source Unit,الوحدة المصدر
+Stalled,متعثر
+Status,حالة المهمة
+Subject,المهام الرئيسية
+Submission,الرفع الأسبوعي
+Submission Cycle,دورة الرفع
+Submission Line,سطر الرفع
+Submission Reminder Days,أيام التذكير بالرفع
+Submission Type,نوع الرفع
+Submissions,الرفع الأسبوعي
+Submitted,تم الرفع
+Submitted On,تاريخ الرفع
+Submitted: {0},تم الرفع: {0}
+Support,الدعم
+Support Kind,نوع الدعم
+Support Text,تفاصيل الدعم
+Tasks,المهام
+Technical,تقني
+Title,التحدي
+Torch Bearer,حامل المشعل
+Total Regions: {0},إجمالي المناطق: {0}
+Under Handling,قيد المعالجة
+Unit,الوحدة التنظيمية
+Unit Code,رمز الوحدة
+Unit Name,اسم الوحدة
+Unit Type,نوع الوحدة
+Unit is mandatory when Entity Scope is Internal,الوحدة التنظيمية مطلوبة عندما يكون نطاق الجهة داخلية
+Update Date,تاريخ التحديث
+Update Due,تحديث مستحق
+Update Frequency,تكرار التحديث
+Update Source,مصدر التحديث
+Update Text,نص التحديث
+User,مستخدم
+View Submissions,عرض الرفع الأسبوعي
+View Updates,عرض التحديثات
+Watch Item,بند متابعة
+Watch Items Due for Update,بنود المتابعة المستحقة للتحديث
+Watch Update Reminder Days,أيام التذكير بتحديث المتابعة
+Weekly,أسبوعي
+{0} already holds submission {1} for unit {2},{0} يحتوي بالفعل على الرفع {1} للوحدة {2}
